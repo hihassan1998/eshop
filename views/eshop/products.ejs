@@ -1,0 +1,67 @@
+<%- include("header", {title: title}); %>
+
+    <main >
+        <div class="centered">
+
+            <h1>Product Overview</h1>
+            <p style="text-align: center;">Here is the balance for the products in warehouse.</p>
+        </div>
+
+    </main>
+    <table class="centered" border="1">
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Stock Quantity</th>
+                <th>Categories</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if (products.length> 0) { %>
+                <% products.forEach(product=> { %>
+                    <tr>
+                        <td>
+                            <a href="./product/<%= product.produkt_id %>">
+                                <%= product.produkt_id %>
+                            </a>
+                            <%#= product.produkt_id %>
+                        </td>
+                        <td>
+                            <%= product.produkt_namn %>
+                        </td>
+                        <td>
+                            <%= product.produkt_pris %>
+                        </td>
+                        <td>
+                            <%= product.totalt_lagerantal %>
+                        </td>
+                        <td>
+                            <%= product.kategorier %>
+                        </td>
+                        <td style="display: flex; flex-direction:row; justify-content: space-around;">
+                            <a href="/eshop/edit/<%= product.produkt_id %>">
+                                <i class="fa-solid fa-user-pen" aria-hidden="true"></i>
+                            </a>
+                            <a href="/eshop/delete/<%= product.produkt_id %>">
+                                <i class="fa-solid fa-trash"aria-hidden="true"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    <% }) %>
+                        <% } else { %>
+                            <tr>
+                                <td colspan="5">No products found.</td>
+                            </tr>
+                            <% } %>
+        </tbody>
+    </table>
+
+
+    <p>
+        <a href="index">Index</a>
+    </p>
+
+    <%- include("footer"); %>

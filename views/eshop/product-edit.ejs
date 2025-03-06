@@ -1,0 +1,39 @@
+<%- include("header", {title: title}); %>
+<main style="margin-top:50px;" class="centered">
+
+<h1>Edit product details</h1>
+
+<p>This is the product details for <%= res[0].produkt_namn %>.</p>
+
+<% res = res[0] %> <!-- Extracting the first product object -->
+
+<form class="label-left" method="post" action="/eshop/edit">
+    <fieldset>
+        <legend>Edit product</legend>
+
+        <!-- Readonly ID field -->
+        <label for="produkt_id">Id</label>
+        <input id="produkt_id" type="text" name="produkt_id" readonly value="<%= res.produkt_id %>">
+
+        <!-- Prefilled Name field -->
+        <label for="produkt_namn">Name</label>
+        <input id="produkt_namn" type="text" name="produkt_namn" value="<%= res.produkt_namn %>">
+
+        <!-- Prefilled Description field -->
+        <label for="produkt_beskrivning">Description</label>
+        <textarea id="produkt_beskrivning" name="produkt_beskrivning"><%= res.produkt_beskrivning %></textarea>
+
+        <!-- Prefilled Price field -->
+        <label for="produkt_pris">Price</label>
+        <input id="produkt_pris" type="number" step="0.01" name="produkt_pris" value="<%= res.produkt_pris %>">
+
+        <input type="submit" name="doit" value="Edit">
+    </fieldset>
+</form>
+
+<p>
+    <a href="/eshop/product/<%= res.produkt_id %>">Back to product</a>
+</p>
+</main>
+
+<%- include("footer"); %>

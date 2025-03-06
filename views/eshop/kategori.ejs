@@ -1,0 +1,45 @@
+<%- include("header", {title: title}); %>
+
+<main>
+    <h1>Categories Overview</h1>
+
+    <table class="centered" border="1">
+        <thead>
+            <tr>
+                <th>Category ID</th>
+                <th>Category Name</th>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Product Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if (categories.length > 0) { %>
+                <% categories.forEach(category => { %>
+                    <tr>
+                        <td><%= category.kategori_id %></td>
+                        <td><%= category.kategori_namn %></td>
+                        <td><%= category.product_id %></td>
+                        <td><%= category.product_namn %></td>
+                        <td><%= category.product_price %></td>
+                    </tr>
+                <% }) %>
+            <% } else { %>
+                <tr>
+                    <td colspan="5">No categories found.</td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+
+    <p style="text-align: center;">
+        <a style="padding:10px; border-bottom:2px solid brown;" href="index">Index</a>
+    </p>
+
+    <p style="text-align: center;">
+        <!-- Raw data: <%#= JSON.stringify(categories, null, 2) %> -->
+    </p>
+
+</main>
+
+<%- include("footer"); %>

@@ -1,0 +1,30 @@
+<%- include("header", {title: title}); %>
+<main style="margin-top:50px;" class="centered">
+
+<h1>Create product</h1>
+
+<p>Create a new product</p>
+
+<form class="label-left" method="post">
+    <fieldset>
+        <legend>Create product</legend>
+
+        <label for="produkt_namn">Name</label>
+        <input id="produkt_namn" type="text" name="produkt_namn">
+
+        <label for="produkt_beskrivning">Description</label>
+        <textarea id="produkt_beskrivning" name="produkt_beskrivning"></textarea>
+
+        <label for="produkt_pris">Price</label>
+        <input id="produkt_pris" type="number" name="produkt_pris">
+
+        <input type="submit" name="doit" value="Create">
+    </fieldset>
+</form>
+
+<p>
+    <a href="index">Index</a>
+</p>
+</main>
+
+<%- include("footer"); %>

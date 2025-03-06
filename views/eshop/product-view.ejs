@@ -1,0 +1,49 @@
+<%- include("header", {title: title}); %>
+
+    <main class="">
+
+
+        <h1>Product Details</h1>
+
+        <table class="centered" border="1">
+            <thead>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Product Description</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (res.length> 0) { %>
+                    <% res.forEach(product=> { %>
+                        <tr>
+                            <td>
+                                <%= product.produkt_id %>
+                            </td>
+                            <td>
+                                <%= product.produkt_namn %>
+                            </td>
+                            <td>
+                                <%= product.produkt_beskrivning %>
+                            </td>
+                            <td>
+                                <%= product.produkt_pris %>
+                            </td>
+                        </tr>
+                        <% }) %>
+                            <% } else { %>
+                                <tr>
+                                    <td colspan="4">No product found.</td>
+                                </tr>
+                                <% } %>
+            </tbody>
+
+        </table>
+
+        <p class="">
+            <a href="/eshop/products">Back to Product Overview</a>
+        </p>
+    </main>
+
+    <%- include("footer"); %>
